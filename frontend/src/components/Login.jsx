@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
+
 function Login() {
   const closeModal = () => {
     document.getElementById("my_modal_3").close();
@@ -11,7 +14,32 @@ function Login() {
 
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userinfo = {
+      email: data.email,
+      password: data.password,
+    };
+    await axios
+      .post("http://localhost:4001/user/login", userinfo)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          toast.success("User logged in successfully");
+          closeModal();
+          setTimeout(() => {
+            window.location.reload();
+            localStorage.setItem("Users", JSON.stringify(res.data.user));
+          }, 1000);
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err);
+          toast.error("error" + err.response.data.message);
+          setTimeout(() => {}, 1000);
+        }
+      });
+  };
 
   return (
     <>
@@ -41,11 +69,15 @@ function Login() {
                 {...register("email", { required: true })}
               />
               <br />
-              {errors.email && <span className="text-sm text-red-500">This field is required</span>}
+              {errors.email && (
+                <span className="text-sm text-red-500">
+                  This field is required
+                </span>
+              )}
             </div>
             {/* password */}
             <div className="mt-5 space-y-3">
-              <span >Password</span>
+              <span>Password</span>
               <br />
               <input
                 type="password"
@@ -54,7 +86,11 @@ function Login() {
                 {...register("password", { required: true })}
               />
               <br />
-              {errors.password && <span className="text-sm text-red-500">This field is required</span>}
+              {errors.password && (
+                <span className="text-sm text-red-500">
+                  This field is required
+                </span>
+              )}
             </div>
             {/* button */}
             <div className="flex justify-between mt-4">
