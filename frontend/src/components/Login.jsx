@@ -19,16 +19,16 @@ function Login() {
       email: data.email,
       password: data.password,
     };
-    await axios
-      .post("http://localhost:4001/user/login", userinfo)
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4001";
+await axios.post(`${BASE_URL}/user/login`, userinfo)
       .then((res) => {
         console.log(res.data);
         if (res.data) {
           toast.success("User logged in successfully");
           closeModal();
+          localStorage.setItem("Users", JSON.stringify(res.data.user));
           setTimeout(() => {
-            window.location.reload();
-            localStorage.setItem("Users", JSON.stringify(res.data.user));
+             window.location.reload();
           }, 1000);
         }
       })

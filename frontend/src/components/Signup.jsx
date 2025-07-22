@@ -21,8 +21,8 @@ function Signup() {
       email: data.email,
       password: data.password,
     };
-    await axios
-      .post("http://localhost:4001/user/signup", userinfo)
+    const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4001";
+await axios.post(`${BASE_URL}/user/signup`, userinfo)
       .then((res) => {
         console.log(res.data);
         if (res.data) {
