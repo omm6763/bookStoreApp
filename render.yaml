@@ -1,0 +1,29 @@
+services:
+  # Backend API Service
+  - type: web
+    name: bookstore-api
+    runtime: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4001
+      - key: MongoDBURI
+        sync: false # Will be set manually in Render dashboard
+      - key: FRONTEND_URL
+        value: https://bookstoreapp-yd4w.onrender.com
+    healthCheckPath: /
+
+  # Frontend Static Site Service  
+  - type: web
+    name: bookstore-frontend
+    runtime: static
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        value: https://bookstoreapp-q3mj.onrender.com

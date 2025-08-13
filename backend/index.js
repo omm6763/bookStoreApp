@@ -8,13 +8,21 @@ import userroute from './route/user.route.js';
 
 const app = express()
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        "http://localhost:3000",
+        "http://localhost:5173", 
+        "https://bookstoreapp-yd4w.onrender.com",
+        process.env.FRONTEND_URL
+    ],
+    credentials: true
+}));
 dotenv.config();
 
 app.use(express.json());
 
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 const URI = process.env.MongoDBURI;
 
 //connect to mongodb

@@ -15,7 +15,7 @@ function Freebook() {
         const BASE_URL =
           import.meta.env.VITE_BACKEND_URL || "http://localhost:4001";
         const res = await axios.get(`${BASE_URL}/book`);
-        const data = res.data.filter((data) => data.Catagory === "Free");
+        const data = res.data.filter((data) => data.category === "Free");
         setbook(data);
       } catch (err) {
         console.log(err);

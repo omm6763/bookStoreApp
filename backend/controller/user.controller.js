@@ -28,11 +28,7 @@ export const signup = async (req, res) => {
     }
     catch (err) {
         console.log("error in signup", err);
-        res.status(500).json({ message: "internal server error" ,user:{
-            fullname:createduser.fullname,
-            email:createduser.email,
-            _id:createduser._id
-        }})
+        res.status(500).json({ message: "internal server error" })
 
     }
 }
