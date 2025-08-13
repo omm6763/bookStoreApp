@@ -28,6 +28,10 @@ try {
     console.error('MongoDB connection error:', err);
 }
 //defining routes 
+app.get("/", (req, res) => {
+    res.json({ message: "BookStore API is running!", availableRoutes: ["/book", "/user"] });
+});
+
 app.use("/book", bookRoute);
 app.use("/user", userroute);
 
