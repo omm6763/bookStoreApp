@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Login from "./Login";
 import { useAuth } from "../context/Authprovider";
 import Logout from "./Logout";
@@ -40,10 +41,10 @@ function Navbar() {
   const navItems = (
     <>
       <li>
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a href="/Course">Course</a>
+        <Link to="/Course">Course</Link>
       </li>
       <li>
         <a>Contact</a>
@@ -92,7 +93,7 @@ function Navbar() {
                 {navItems}
               </ul>
             </div>
-            <a className="text-2xl font-bold cursor-pointer">bookStore</a>
+            <Link to="/" className="text-2xl font-bold cursor-pointer">bookStore</Link>
           </div>
 
           <div className="navbar-end space-x-3">
