@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+
+import  { useEffect, useState } from "react";
 import Cards from "./Cards";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -7,7 +8,10 @@ function Course() {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
+        // const res = await axios.get("http://localhost:4001/book");
+    const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/book`);
+
+
         console.log(res.data);
         setBook(res.data);
       } catch (error) {
