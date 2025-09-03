@@ -185,6 +185,11 @@ mongoose
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 
+app.get("/", (req, res) => {
+  res.send("Backend is running! :)");
+});
+
+
 // 5️⃣ Optional test route
 app.get("/api/test", (req, res) => {
   res.send("Backend is running!");
