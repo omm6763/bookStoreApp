@@ -160,8 +160,28 @@ dotenv.config();
 const app = express();
 
 // 2️⃣ Middleware
-app.use(cors({ origin: "*" }));
+// app.use(cors({ origin: "*" }));
+// app.use(express.json());
+
+// 2️⃣ Middleware
+app.use(cors({
+  origin: "https://book-store-app-795c-p94qtwdpq-omm6763s-projects.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+app.options("*", cors()); // handle preflight requests
+
 app.use(express.json());
+
+
+
+
+
+
+
+
+
 
 // 3️⃣ MongoDB connection
 const PORT = process.env.PORT || 4001;
