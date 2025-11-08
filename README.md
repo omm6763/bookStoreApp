@@ -1,10 +1,12 @@
 📚 bookStoreApp
 This is a full-stack MERN (MongoDB, Express, React, Node.js) application for an online bookstore. Users can browse books, sign up for an account, and view a protected list of courses.
 
-Live Demo
-Frontend (Vercel): https://book-store-app-lilac-tau.vercel.app/
+### Live Demo
 
-Backend (Render): https://bookstoreapp-3-pot4.onrender.com/
+* **Frontend (Vercel):** [https://book-store-app-lilac-tau.vercel.app/](https://book-store-app-lilac-tau.vercel.app/)
+* **Backend (Render):** [https://bookstoreapp-3-pot4.onrender.com/](https://bookstoreapp-3-pot4.onrender.com/)
+
+**Note:** The backend is hosted on Render's free tier, so it may "spin down" after a period of inactivity. The first request to the site might take 30-60 seconds to "wake up" the server.
 
 ✨ Features
 User Authentication: Secure signup and login for users.
