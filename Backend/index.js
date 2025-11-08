@@ -15,16 +15,6 @@ const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-
-
-
-
-
-
-
-
-
-
 // 3️ MongoDB connection
 const PORT = process.env.PORT || 4001;
 const URI = process.env.MongoDBURI;
