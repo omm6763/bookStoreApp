@@ -1,21 +1,56 @@
-# 📚 Book Store App
+📚 bookStoreApp
+This is a full-stack MERN (MongoDB, Express, React, Node.js) application for an online bookstore. Users can browse books, sign up for an account, and view a protected list of courses.
 
-A full-stack MERN (MongoDB, Express, React, Node.js) application for managing books and users.  
-Frontend is deployed on **Vercel**, and backend is deployed on **Render**.
+Live Demo
+Frontend (Vercel): https://book-store-app-lilac-tau.vercel.app/
 
----
+Backend (Render): https://bookstoreapp-3-pot4.onrender.com/
 
-## 🚀 Live Demo
-- **Frontend (Vercel):** [https://book-store-app-795c.vercel.app/](https://book-store-app-795c-p94qtwdpq-omm6763s-projects.vercel.app/)  
-- **Backend (Render):** [https://bookstoreapp-2-xf2a.onrender.com/](https://bookstoreapp-2-xf2a.onrender.com/)
+✨ Features
+User Authentication: Secure signup and login for users.
 
----
+Protected Routes: The /course page is only accessible to logged-in users.
 
-## 🛠️ Tech Stack
-- **Frontend:** React + Vite, React Router, Axios, TailwindCSS, React Hook Form, React Hot Toast  
-- **Backend:** Node.js, Express.js, MongoDB (Mongoose), CORS  
-- **Deployment:**  
-  - Frontend → [Vercel](https://vercel.com/)  
-  - Backend → [Render](https://render.com/)  
+Book Catalog: Fetches and displays a list of all available books.
 
----
+Free Book Carousel: A special section on the homepage for free books, displayed in a "react-slick" carousel.
+
+Dark Mode: A theme-switcher in the navbar to toggle between light and dark modes.
+
+Responsive Design: Built with Tailwind CSS for a mobile-friendly experience.
+
+🛠️ Tech Stack
+This project is a monorepo containing two separate applications:
+
+Frontend (React + Vite)
+Framework: React
+
+Routing: React Router
+
+Styling: Tailwind CSS
+
+API Client: Axios
+
+Form Management: React Hook Form
+
+State Management: React Context API
+
+Notifications: React Hot Toast
+
+Carousel: React Slick
+
+Backend (Node.js + Express)
+Framework: Express.js
+
+Database: MongoDB (with Mongoose)
+
+Authentication: bcryptjs for password hashing.
+
+Environment: dotenv for managing secrets.
+
+CORS: cors for cross-origin requests.
+
+
+Bash
+
+npm run dev
