@@ -1,40 +1,51 @@
 import React from "react";
-import banner from "../../public/Banner.png";
+
 function Banner() {
   return (
     <>
-      <div className=" max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10">
-        <div className="w-full order-2 md:order-1 md:w-1/2 mt-12 md:mt-36">
-          <div className="space-y-8">
-            <h1 className="text-2xl md:text-4xl font-bold">
-              Hello, welcomes here to learn something{" "}
-              <span className="text-pink-500">new everyday!!!</span>
+      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10 items-center min-h-[80vh] relative overflow-hidden">
+        
+        {/* Background Elements */}
+        <div className="absolute top-20 right-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob dark:opacity-20 pointer-events-none"></div>
+        <div className="absolute top-20 right-40 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000 dark:opacity-20 pointer-events-none"></div>
+
+        {/* Text Section */}
+        <div className="w-full order-2 md:order-1 md:w-1/2 mt-12 md:mt-0 z-10">
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
+              Unlock a universe of stories <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+                to read everyday!
+              </span>
             </h1>
-            <p className="text-sm md:text-xl">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-              et totam. Tempora amet atque expedita, quae corrupti totam sed
-              pariatur corporis at veniam est voluptas animi!
+            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+              Discover your next favorite book. From timeless classics to modern sci-fi adventures, your cozy digital library awaits.
             </p>
-            <label className="input input-bordered flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                className="w-4 h-4 opacity-70"
-              >
-                <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
-                <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
-              </svg>
-              <input type="text" className="grow" placeholder="Email" />
-            </label>
+            
+            {/* Input & Button */}
+            <div className="flex flex-col sm:flex-row gap-2 w-full max-w-lg mt-6">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  
+                  className="input input-bordered w-full bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all" 
+                />
+                <button className="btn bg-pink-500 hover:bg-pink-600 text-white border-none px-8 text-lg rounded-lg transition-colors">
+                  Subscribe
+                </button>
+            </div>
           </div>
-          <button className="btn mt-6 btn-secondary">Get Started</button>
+          <div className="mt-8 flex gap-4">
+             <a href="/course" className="btn btn-outline border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-pink-500 transition-all">Explore Books</a>
+          </div>
         </div>
-        <div className=" order-1 w-full mt-20 md:w-1/2">
+
+        {/* Image Section */}
+        <div className="order-1 w-full md:w-1/2 flex justify-center md:justify-end relative z-10 mt-10 md:mt-0">
           <img
-            src={banner}
-            className="md:w-[550px] md:h-[460px] md:ml-12"
-            alt=""
+            src="/new-banner.png" 
+            className="w-full max-w-[650px] object-contain drop-shadow-2xl rounded-xl hover:scale-[1.02] transition-transform duration-500"
+            alt="Cozy reading nook with books and tea"
           />
         </div>
       </div>
